@@ -1,3 +1,3 @@
 # jordanmiller.github.io
 
-theme: jekyll-theme-minimal
+theme: jekyll-theme-hacker
