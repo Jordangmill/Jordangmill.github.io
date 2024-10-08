@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Detailed information about Project 2 by Jordan Miller.">
-  <meta name="keywords" content="Jordan Miller, Project 2, Portfolio, IT, Technical Support">
+  <meta name="description" content="Detailed information about configuring a Windows Server 2022 virtual machine and setting up Active Directory.">
+  <meta name="keywords" content="Jordan Miller, Project 2, Portfolio, IT, Active Directory, Virtual Machine, Windows Server 2022">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <title>Project 2 - Jordan Miller's Portfolio</title>
@@ -25,13 +25,24 @@
   
   <div class="container">
     <section id="project2">
-      <h2>Project 2</h2>
+      <h2>Project 2 - Configuring a Windows Server 2022 Virtual Machine with Active Directory</h2>
       <img src="project2.jpg" alt="Project 2" class="img-fluid">
-      <p><strong>Description:</strong> Detailed description of Project 2...</p>
-      <p><strong>Technologies Used:</strong> List the technologies and tools used in this project...</p>
-      <p><strong>Challenges:</strong> Discuss any challenges faced during the project...</p>
-      <p><strong>Solutions:</strong> Describe the solutions implemented to overcome the challenges...</p>
-      <p><strong>Outcome:</strong> Explain the outcomes and any results achieved through the project...</p>
+      <p><strong>Description:</strong> This project involved configuring a Windows Server 2022 virtual machine in Oracle VirtualBox, setting up Active Directory Domain Services (AD DS), and promoting the server to a domain controller. The project covers the entire process from installation to basic usage of Active Directory.</p>
+      <p><strong>Technologies Used:</strong> Windows Server 2022, Oracle VirtualBox, Active Directory Domain Services (AD DS), Command Prompt, PowerShell.</p>
+      <p><strong>Steps to Configure the Virtual Machine:</strong></p>
+      <ol>
+        <li><strong>Setting Up VirtualBox:</strong> Created a new virtual machine in Oracle VirtualBox, allocated memory, attached the Windows Server 2022 ISO for installation, and configured system settings including boot order.</li>
+        <li><strong>Installing Windows Server:</strong> Booted the virtual machine from the ISO, followed the installation prompts, chose the appropriate server type (Server with Desktop Experience), and completed the setup of Windows Server 2022.</li>
+        <li><strong>Configuring Initial Server Settings:</strong> Used <code>sconfig</code> to set the computer name, configure the time zone, enable remote management, and set up basic network configuration.</li>
+        <li><strong>Installing Active Directory Domain Services:</strong> Installed AD DS using PowerShell with the command <code>Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools</code>. This installed the necessary features to create a domain.</li>
+        <li><strong>Promoting the Server to a Domain Controller:</strong> Used the <code>Install-ADDSForest</code> command to create a new forest and domain (<code>jamf.local</code>). This process included setting up the Directory Services Restore Mode (DSRM) password.</li>
+        <li><strong>Configuring Network Settings:</strong> Assigned a static IP address to ensure the server could communicate with other machines consistently. Set the IP address, subnet mask, default gateway, and DNS server manually through network settings.</li>
+        <li><strong>Testing Domain Connectivity:</strong> Verified connectivity between the domain controller and a client machine using ping tests. Configured the client to use the server's IP address as the DNS server and attempted to join the domain.</li>
+        <li><strong>Joining a Client Machine to the Domain:</strong> On the client machine, navigated to system settings to change the computer name and domain. Entered the domain name (<code>jamf.local</code>), provided the domain administrator credentials, and successfully joined the client to the domain.</li>
+      </ol>
+      <p><strong>Challenges:</strong> One of the main challenges was configuring the network settings properly to ensure that the server and client could communicate. Initially, there were issues with IP address conflicts and DNS configurations, which were resolved by setting a static IP and adjusting the DNS server settings. Another challenge was ensuring that the client machine could properly locate the domain, which required careful DNS configuration.</p>
+      <p><strong>Solutions:</strong> To resolve network configuration issues, I manually set a static IP address on both the server and client machines. I also configured the DNS settings to ensure name resolution was working correctly for the domain. Additionally, I verified firewall settings and ensured both machines were on the same network segment.</p>
+      <p><strong>Outcome:</strong> Successfully set up a Windows Server 2022 virtual machine as a domain controller, configured Active Directory, and connected a client machine to the domain. This project demonstrated my ability to configure a server environment, manage Active Directory for a small network, and troubleshoot network connectivity issues effectively.</p>
     </section>
   </div>
   
